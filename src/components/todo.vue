@@ -1,16 +1,25 @@
 <template>
  <div>
    <template v-if="user.loggedIn">
+
      
      
    </template>
      <template v-if="user.loggedIn"><h1 class="time">{{time()}}</h1>
       <h1 class="name"><b-badge>Welcome {{user.data.displayName}}</b-badge></h1>
-      <!-- <div class="click" v-on:click="click">Click Here To Generate Chart Data</div> -->
-     <b-card class="my_card"><Visualization/>
+      <!-- <div class="click" v-on:click="click">Click Here To Generate Chart 
+
+    Data</div> -->
+   <b-card class="my_card"> <barVisualization/>
+     <b-card-body class="pie">
+        BAR CHART
+         </b-card-body>
+       </b-card>
+     <b-card class="my_card"><Visualization2/>
       
          <b-card-body class="pie">
         PIE CHART REPRESENTING NUMBER OF TODO ITEMS COMPLETED OR NOT COMPLETED YET.
+
          </b-card-body>
        </b-card>
        
@@ -52,11 +61,15 @@ import firebase from "firebase";
 // import chart from './Chart';
 // import chart from './components/Chart';
 import Visualization from './visualization.vue';
+import Visualization2 from './visualization2.vue';
+import barVisualization from './barVisualization.vue';
 export default {
     name:'Todo',
     components:{
   
-    Visualization
+    Visualization,
+    Visualization2,
+    barVisualization
   },
    
     computed: {
@@ -623,6 +636,9 @@ export default {
  }
  .my_card{
   text-align:center;
+  border:solid;
+  border-style: groove;
+ 
 
  }
 
